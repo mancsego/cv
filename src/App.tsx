@@ -1,16 +1,13 @@
 import './App.css'
-import Header from './components/sections/Header'
-import Introduction from './components/sections/Introduction'
-import AboutMe from './components/sections/AboutMe'
-import Contact from './components/sections/Contact'
-import Social from './components/sections/Social'
+import Header from './components/organisms/Header'
+import Introduction from './components/organisms/Introduction'
+import AboutMe from './components/organisms/AboutMe'
+import Contact from './components/organisms/Contact'
+import Social from './components/organisms/Social'
 
 const App = (): JSX.Element => {
   return (
-    <div className="App">
-      <div className="my-5">
-        <a href="/">test</a>
-      </div>
+    <div className="container mx-auto px-2 md:px-10">
       <Header />
       <Introduction />
       <AboutMe />
