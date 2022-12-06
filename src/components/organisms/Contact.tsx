@@ -5,7 +5,7 @@ const Divider = lazy(async () => await import('../atoms/Divider'))
 
 const Contact = (): JSX.Element => {
   return (
-    <div>
+    <div id="contact">
       <div className="heading">
         <Divider />
         <h2>contact</h2>

@@ -9,6 +9,9 @@
   color-scheme: light dark;
   background-color: #242424;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 @layer base {
   a {
