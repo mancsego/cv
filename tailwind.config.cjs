@@ -6,6 +6,10 @@ module.exports = {
       colors: {
         primary: '#ffffffde',
         secondary: '#1a1a1a',
+        'react-gray': '#242424',
+      },
+      backgroundImage: {
+        me: "url('/src/assets/me.jpeg')",
       },
     },
   },

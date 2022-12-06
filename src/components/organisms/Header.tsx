@@ -7,10 +7,10 @@ const Header = (): JSX.Element => {
       <a className="mx-2 link" href="#about-me">
         about me
       </a>
-      <a className="mx-2 link" href="contact">
+      <a className="mx-2 link" href="#contact">
         contact
       </a>
-      <a className="mx-2 link" href="social">
+      <a className="mx-2 link" href="#social">
         social
       </a>
     </div>
