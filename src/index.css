@@ -25,6 +25,12 @@ html {
   h2 {
     @apply text-2xl;
   }
+  h3 {
+    @apply text-xl;
+  }
+  h4 {
+    @apply text-lg;
+  }
 }
 
 @layer components {
