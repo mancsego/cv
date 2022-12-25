@@ -17,5 +17,6 @@ module.exports = {
     quotes: [2, 'single', { avoidEscape: true }],
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
   },
 }
