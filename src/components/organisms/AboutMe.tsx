@@ -1,31 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { useAppSelector } from '../../store'
+import { selectAboutMe } from '../../store/features/cmsSlice'
 import Divider from '../atoms/Divider'
 import Timeline from './Timeline'
 
 const AboutMe = (): JSX.Element => {
-  const experience = [
-    {
-      time: 'March 2022',
-      headline: 'Marketing UI design in Figma',
-      desc: 'All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.',
-    },
-    {
-      time: 'February 2022',
-      headline: 'Marketing UI design in Figma',
-      desc: 'All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.',
-    },
-  ]
-  const education = [
-    {
-      time: 'sdf.sdmflds 2022',
-      headline: 'Marketing UI design in Figma',
-      desc: 'All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.',
-    },
-    {
-      time: 'sdljflds 2022',
-      headline: 'Marketing UI design in Figma',
-      desc: 'All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.',
-    },
-  ]
+  const { education, experience } = useAppSelector(selectAboutMe)
+
   return (
     <div id="about-me">
       <div className="heading">
@@ -38,7 +19,7 @@ const AboutMe = (): JSX.Element => {
           <Timeline id="expecrience" source={experience} />
         </div>
         <div className="w-full md:w-1/2">
-          <div className="heading">Education</div>
+          <h3 className="heading">Education</h3>
           <Timeline id="education" source={education} />
         </div>
       </div>

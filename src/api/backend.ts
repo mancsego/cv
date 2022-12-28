@@ -1,6 +1,12 @@
 import { initializeApp } from 'firebase/app'
 import { getDatabase, ref, get, child } from 'firebase/database'
 
+enum Languages {
+  en = 'en',
+  de = 'de',
+  hu = 'hu',
+}
+
 const {
   VITE_FIREBASE_API_KEY: apiKey,
   VITE_FIREBASE_DOMAIN: authDomain,
@@ -24,7 +30,8 @@ const config = {
 const app = initializeApp(config)
 const db = ref(getDatabase(app))
 
-export const fetchDb = async (language: string = 'en') => {
+export const fetchDb = async (language: Languages = Languages.en) => {
   const snapshot = await get(child(db, language))
+
   return snapshot.exists() ? snapshot.val() : {}
 }

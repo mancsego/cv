@@ -1,14 +1,10 @@
-interface TimelineElementProps {
-  time: string
-  headline: string
-  desc: string
-}
+import { TimelineInstance } from '../../common/types'
 
 const TimelineElement = ({
   time,
   headline,
   desc,
-}: TimelineElementProps): JSX.Element => {
+}: TimelineInstance): JSX.Element => {
   return (
     <li className="mb-8 ml-4">
       <div className="absolute w-4 h-4 bg-gray-200 rounded-full -left-2 border border-white"></div>

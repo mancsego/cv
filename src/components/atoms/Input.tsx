@@ -1,11 +1,5 @@
+import { InputProps } from '../../common/types'
 import './Input.css'
-
-interface InputProps {
-  label: string
-  id?: string
-  type?: string
-  placeholder?: string
-}
 
 const Input = ({
   label,
