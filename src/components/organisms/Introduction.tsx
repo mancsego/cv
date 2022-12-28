@@ -1,7 +1,10 @@
+import { useAppSelector } from '../../store'
+import { selectIntro } from '../../store/features/cmsSlice'
 import IntroductionText from '../atoms/IntroductionText'
 import './Introduction.css'
 
 const Introduction = (): JSX.Element => {
+  const desc = useAppSelector(selectIntro)
   return (
     <div className="flex flex-col md:flex-row justify-around">
       <div id="me" className="md:basis-1/2 flex justify-center items-end">
@@ -13,7 +16,7 @@ const Introduction = (): JSX.Element => {
         <div className="py-6 hidden md:block">
           <IntroductionText />
         </div>
-        Desc
+        {desc}
       </div>
     </div>
   )

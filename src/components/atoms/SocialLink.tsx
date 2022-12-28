@@ -1,7 +1,4 @@
-interface SocialProps {
-  icon: string
-  link: string
-}
+import { SocialProps } from '../../common/types'
 
 const SocialLink = ({ icon, link }: SocialProps): JSX.Element => {
   return (

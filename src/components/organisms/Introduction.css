@@ -1,11 +1,6 @@
 #me {
   background-image: url('/src/assets/me.jpeg');
-  background-repeat: no-repeat;
-  background-position: top 0 left 50%;
-  background-size: cover;
-  margin: 20px;
   min-height: 60vh;
-  max-width: 100%;
   box-shadow: inset 0px 0px 20px 20px #242426;
-  border-radius: 20px;
+  @apply md:mr-20 xl:mx-20 rounded-2xl max-w-full bg-no-repeat bg-cover bg-center;
 }
