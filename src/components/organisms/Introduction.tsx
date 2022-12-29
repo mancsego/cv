@@ -12,7 +12,7 @@ const Introduction = (): JSX.Element => {
           <IntroductionText />
         </div>
       </div>
-      <div className="md:basis-1/2">
+      <div className="md:basis-1/2 px-4 xl:pl-0 xl:pr-5">
         <div className="py-6 hidden md:block">
           <IntroductionText />
         </div>

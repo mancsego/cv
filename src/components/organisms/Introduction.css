@@ -2,5 +2,5 @@
   background-image: url('/src/assets/me.jpeg');
   min-height: 60vh;
   box-shadow: inset 0px 0px 20px 20px #242426;
-  @apply md:mr-20 xl:mx-20 rounded-2xl max-w-full bg-no-repeat bg-cover bg-center;
+  @apply xl:mr-20 rounded-2xl max-w-full bg-no-repeat bg-cover bg-center;
 }
