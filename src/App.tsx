@@ -8,6 +8,7 @@ import Iconset from './components/molecules/Iconset'
 import { useAppDispatch } from './store'
 import { fetchData } from './store/features/cmsSlice'
 import { useEffect } from 'react'
+import Overlay from './components/organisms/Overlay'
 
 const App = (): JSX.Element => {
   const dispatch = useAppDispatch()
@@ -16,7 +17,7 @@ const App = (): JSX.Element => {
   }, [])
 
   return (
-    <div className="container mx-auto px-2 md:px-10">
+    <div className="container mx-auto px-2 md:px-10 relative">
       <div></div>
       <Iconset />
       <Header />
@@ -24,6 +25,7 @@ const App = (): JSX.Element => {
       <AboutMe />
       <Contact />
       <Social />
+      <Overlay />
     </div>
   )
 }

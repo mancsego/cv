@@ -21,3 +21,8 @@ export interface SocialProps {
   icon: string
   link: string
 }
+
+export interface NavItemProps {
+  link: string
+  title: string
+}
