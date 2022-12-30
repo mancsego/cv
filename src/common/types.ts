@@ -25,4 +25,5 @@ export interface SocialProps {
 export interface NavItemProps {
   link: string
   title: string
+  onClick: Function
 }

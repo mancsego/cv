@@ -1,10 +1,9 @@
 import { RootState } from './../index'
 import { TimelineInstance } from '../../common/types'
 import { createAsyncThunk, createSelector, createSlice } from '@reduxjs/toolkit'
-import { RootState } from '..'
 
 interface CmsState {
-  updating: boolean
+  loaded: boolean
   data: CmsData
 }
 
@@ -17,7 +16,7 @@ interface CmsData {
 }
 
 const initialState: CmsState = {
-  updating: false,
+  loaded: false,
   data: {
     intro: '',
     about_me: {
@@ -39,19 +38,17 @@ export const cmsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchData.pending, (state) => {
-      state.updating = true
-    })
     builder.addCase(fetchData.rejected, (state) => {
-      state.updating = false
+      state.loaded = false
     })
     builder.addCase(fetchData.fulfilled, (state, { payload }) => {
       state.data = payload
-      state.updating = false
+      state.loaded = true
     })
   },
 })
 
+const selectCms = (state: RootState) => state.cms
 const selectData = (state: RootState) => state.cms.data
 
 export const selectAboutMe = createSelector(
@@ -60,5 +57,6 @@ export const selectAboutMe = createSelector(
 )
 
 export const selectIntro = createSelector(selectData, ({ intro }) => intro)
+export const selectLoaded = createSelector(selectCms, ({ loaded }) => loaded)
 
 export default cmsSlice.reducer

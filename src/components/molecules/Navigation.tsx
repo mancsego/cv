@@ -18,7 +18,12 @@ const Navigation = () => {
     },
   ]
   const content = items.map(({ link, title }) => (
-    <NavItem title={title} link={link} key={link} />
+    <NavItem
+      title={title}
+      link={link}
+      key={link}
+      onClick={() => setOpen(false)}
+    />
   ))
   return (
     <div className="md:hidden absolute bottom-0 left-0 right-0 bg-react-gray text-center">
