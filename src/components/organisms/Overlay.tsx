@@ -3,9 +3,7 @@ import Navigation from '../molecules/Navigation'
 
 const Overlay = () => (
   <div className="overlay">
-    <div className="h-full relative">
-      <Navigation />
-    </div>
+    <Navigation />
   </div>
 )
 
