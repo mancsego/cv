@@ -1,7 +1,5 @@
-import { lazy } from 'react'
 import Input from '../atoms/Input'
-
-const Divider = lazy(async () => await import('../atoms/Divider'))
+import Divider from '../atoms/Divider'
 
 const Contact = (): JSX.Element => {
   return (
