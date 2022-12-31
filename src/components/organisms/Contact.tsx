@@ -1,11 +1,10 @@
 import Input from '../atoms/Input'
-import Divider from '../atoms/Divider'
 
 const Contact = (): JSX.Element => {
   return (
     <div id="contact">
       <div className="heading">
-        <Divider />
+        <hr className="divider" />
         <h2>contact</h2>
       </div>
       <div className="flex justify-center">

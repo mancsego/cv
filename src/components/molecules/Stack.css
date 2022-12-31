@@ -1,0 +1,12 @@
+.wrapper {
+  @apply flex flex-wrap justify-between p-2 my-2;
+}
+.wrapper > div {
+  @apply flex justify-around my-1;
+}
+.wrapper > div img {
+  @apply h-7 md:h-9 my-1 duration-150 transition-all cursor-pointer;
+}
+.wrapper > div img:hover {
+  @apply scale-125;
+}
