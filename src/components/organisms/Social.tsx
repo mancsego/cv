@@ -1,12 +1,11 @@
-import Divider from '../atoms/Divider'
 import SocialLink from '../atoms/SocialLink'
 
 const Social = (): JSX.Element => {
   return (
-    <div id="social">
+    <div id="social" className="mb-8 md:mb-auto">
       <div className="heading">
         <h2>social</h2>
-        <Divider />
+        <hr className="divider" />
       </div>
       <div className="flex justify-between md:justify-center py-5">
         <SocialLink

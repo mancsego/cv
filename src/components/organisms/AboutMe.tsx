@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useAppSelector } from '../../store'
 import { selectAboutMe } from '../../store/features/cmsSlice'
-import Divider from '../atoms/Divider'
 import Timeline from './Timeline'
 
 const AboutMe = (): JSX.Element => {
@@ -11,7 +10,7 @@ const AboutMe = (): JSX.Element => {
     <div id="about-me">
       <div className="heading">
         <h2>about me</h2>
-        <Divider />
+        <hr className="divider" />
       </div>
       <div className="flex justify-between flex-col md:flex-row xl:mx-16">
         <div className="w-full md:w-1/2">

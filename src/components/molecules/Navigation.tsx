@@ -5,6 +5,10 @@ const Navigation = () => {
   const [open, setOpen] = useState(false)
   const items = [
     {
+      title: 'introduction',
+      link: '#root',
+    },
+    {
       title: 'about me',
       link: '#about-me',
     },
@@ -26,13 +30,13 @@ const Navigation = () => {
     />
   ))
   return (
-    <div className="md:hidden absolute bottom-0 left-0 right-0 bg-react-gray text-center">
+    <div className="md:hidden absolute bottom-0 left-0 right-0 bg-react-gray text-center border-t-2 border-secondary">
       {open && <div className="flex flex-col items-center">{content}</div>}
       <button
         onClick={() => setOpen(!open)}
         className="active:animate-spin py-2"
       >
-        <img className="" src="/src/assets/react.svg" />
+        <img src="/src/assets/react.svg" />
       </button>
     </div>
   )

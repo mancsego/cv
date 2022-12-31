@@ -28,7 +28,7 @@ const initialState: CmsState = {
 export const fetchData = createAsyncThunk(
   'cms/fetchData',
   async (_, { getState }) => {
-    const { fetchDb } = await import('../../api/backend')
+    const { fetchDb } = await import('../../common/backend')
     return (await fetchDb()) as CmsData
   }
 )

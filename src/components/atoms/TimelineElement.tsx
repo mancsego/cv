@@ -12,7 +12,7 @@ const TimelineElement = ({
         {time}
       </time>
       <h4 className="py-2">{headline}</h4>
-      <p className="text-base font-normal text-secondary">{desc}</p>
+      <p className="text-base font-normal text-secondary pr-1 ">{desc}</p>
     </li>
   )
 }

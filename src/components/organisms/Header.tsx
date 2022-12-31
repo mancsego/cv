@@ -1,9 +1,7 @@
-import Divider from '../atoms/Divider'
-
 const Header = (): JSX.Element => {
   return (
     <div className="hidden md:flex justify-around py-5 text-2xl">
-      <Divider />
+      <hr className="divider" />
       <a className="mx-2 link" href="#about-me">
         about me
       </a>
