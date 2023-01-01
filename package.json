@@ -2,7 +2,7 @@
   "author": "Istvan Abraham",
   "homepage": "https://mancsego.github.io/",
   "name": "cv",
-  "private": false,
+  "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
