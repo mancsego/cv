@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import NavItem from '../atoms/NavItem'
 
+import menuIcon from '@/assets/react.svg'
+
 const Navigation = () => {
   const [open, setOpen] = useState(false)
   const items = [
@@ -36,7 +38,7 @@ const Navigation = () => {
         onClick={() => setOpen(!open)}
         className="active:animate-spin py-2"
       >
-        <img src="/src/assets/react.svg" alt="menu" />
+        <img src={menuIcon} alt="menu" />
       </button>
     </div>
   )

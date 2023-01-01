@@ -15,10 +15,13 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["vite-plugin-pwa/client"]
+    "types": ["vite-plugin-pwa/client", "node"],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "parserOptions": {
     "project": null
   },
-  "include": ["src", "vite.config.ts"]
+  "include": ["src/**/*", "vite.config.ts"]
 }
