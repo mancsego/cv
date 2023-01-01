@@ -1,8 +1,8 @@
+import './Introduction.css'
 import { useAppSelector } from '../../store'
 import { selectIntro } from '../../store/features/cmsSlice'
 import IntroductionText from '../atoms/IntroductionText'
 import Stack from '../molecules/Stack'
-import './Introduction.css'
 
 const Introduction = (): JSX.Element => {
   const desc = useAppSelector(selectIntro)
@@ -22,15 +22,17 @@ const Introduction = (): JSX.Element => {
           <IntroductionText />
         </div>
         <div>
-          <span>{desc}</span>
-          <span
-            className="mx-2 inline-block relative cursor-pointer text-secondary link"
+          <div>{desc}</div>
+          <div
+            id="download"
             onClick={() => {
               void downloadCV()
             }}
           >
-            CV
-          </span>
+            <svg className="fill-primary h-4 w-4">
+              <use xlinkHref="#download" />
+            </svg>
+          </div>
         </div>
         <Stack />
       </div>

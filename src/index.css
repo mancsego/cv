@@ -65,7 +65,7 @@ a {
   }
 
   .btn-primary {
-    @apply bg-primary;
+    @apply bg-primary active:bg-secondary;
   }
 
   .heading {
