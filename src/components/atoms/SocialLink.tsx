@@ -6,6 +6,7 @@ const SocialLink = ({ icon, link }: SocialProps): JSX.Element => {
       href={link}
       target="_blank"
       rel="noreferrer"
+      aria-label={link}
       className="px-2 hover:scale-150 transition-all duration-200"
     >
       <svg className="fill-primary h-8 w-8">

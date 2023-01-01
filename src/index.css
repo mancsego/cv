@@ -61,7 +61,7 @@ a {
     transform-origin: left bottom;
   }
   .btn {
-    @apply uppercase text-base text-secondary px-6 py-2;
+    @apply uppercase text-base text-react-gray px-6 py-2;
   }
 
   .btn-primary {

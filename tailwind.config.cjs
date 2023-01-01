@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       colors: {
         primary: '#ffffffde',
-        secondary: '#6B7280',
+        secondary: '#8a909e',
         'react-gray': '#242424',
       },
       backgroundImage: {
