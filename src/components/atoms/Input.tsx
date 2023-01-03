@@ -1,3 +1,4 @@
+import { translate } from '@/common/translator'
 import { InputProps } from '../../common/types'
 import './Input.css'
 
@@ -28,7 +29,7 @@ const Input = ({
         />
       )}
       <label htmlFor={id} className="absolute">
-        {label}
+        {translate(label)}
       </label>
     </div>
   )
