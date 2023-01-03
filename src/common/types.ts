@@ -1,3 +1,21 @@
+export interface CmsState {
+  loaded: boolean
+  data: {
+    cms: CmsData
+    translations: {
+      [key: string]: string
+    }
+  }
+}
+
+export interface CmsData {
+  intro: string
+  about_me: {
+    education: TimelineInstance[]
+    experience: TimelineInstance[]
+  }
+}
+
 export interface TimelineInstance {
   time: string
   headline: string

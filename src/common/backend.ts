@@ -1,17 +1,13 @@
 import { initializeApp } from 'firebase/app'
 import { getDatabase, ref, get, child } from 'firebase/database'
 
-enum Languages {
-  en = 'en',
-  de = 'de',
-  hu = 'hu',
-}
-
 let cache: null | {
   getStorage: Function
   getDownloadURL: Function
   ref: Function
 } = null
+
+const ALLOWED_LANG = ['en', 'de', 'hu']
 
 const {
   VITE_FIREBASE_API_KEY: apiKey,
@@ -36,9 +32,10 @@ const config = {
 const app = initializeApp(config)
 const db = ref(getDatabase(app))
 
-export const fetchDb = async (language: Languages = Languages.en) => {
-  const snapshot = await get(child(db, `cms/${language}`))
+export const fetchDb = async (language: string) => {
+  const lang = ALLOWED_LANG.includes(language) ? language : 'en'
 
+  const snapshot = await get(child(db, lang))
   return snapshot.exists() ? snapshot.val() : {}
 }
 

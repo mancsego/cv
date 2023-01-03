@@ -1,3 +1,4 @@
+import { translate } from '@/common/translator'
 import { useState } from 'react'
 import Input from '../atoms/Input'
 
@@ -13,12 +14,12 @@ const Contact = (): JSX.Element => {
     <div id="contact">
       <div className="heading">
         <hr className="divider" />
-        <h2>contact</h2>
+        <h2>{translate('contact')}</h2>
       </div>
       <div className="flex justify-center">
         <div className="card">
           <div className="pt-3 pb-5 flex items-center">
-            <h3>Get in touch with me</h3>
+            <h3>{translate('Get in touch with me')}</h3>
             <svg className="fill-primary h-6 w-6 ml-3">
               <use xlinkHref="#message" />
             </svg>
@@ -32,7 +33,7 @@ const Contact = (): JSX.Element => {
           </div>
           <div className="flex justify-end mx-4">
             <button className="btn btn-primary" onClick={handleClick}>
-              Send
+              {translate('send')}
             </button>
           </div>
         </div>

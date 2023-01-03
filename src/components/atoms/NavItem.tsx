@@ -1,3 +1,4 @@
+import { translate } from '@/common/translator'
 import { NavItemProps } from '../../common/types'
 
 const NavItem = ({ link, title, onClick }: NavItemProps) => {
@@ -9,7 +10,7 @@ const NavItem = ({ link, title, onClick }: NavItemProps) => {
         onClick()
       }}
     >
-      {title}
+      {translate(title)}
     </a>
   )
 }
