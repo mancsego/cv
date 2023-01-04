@@ -1,3 +1,5 @@
+import { ComponentType } from 'react'
+
 export interface CmsState {
   loaded: boolean
   data: {
@@ -45,4 +47,10 @@ export interface NavItemProps {
   link: string
   title: string
   onClick: Function
+}
+
+export interface LazyComponentProps {
+  factory: () => Promise<{ default: ComponentType }>
+  id: string
+  delay?: number
 }

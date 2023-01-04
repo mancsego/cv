@@ -1,13 +1,16 @@
-import Header from './components/organisms/Header'
-import Introduction from './components/organisms/Introduction'
-import AboutMe from './components/organisms/AboutMe'
-import Contact from './components/organisms/Contact'
-import Social from './components/organisms/Social'
-import Iconset from './components/molecules/Iconset'
 import { useAppDispatch, useAppSelector } from './store'
 import { fetchData, selectLoaded } from './store/features/cmsSlice'
 import { useEffect } from 'react'
+
+import Header from './components/organisms/Header'
+import Introduction from './components/organisms/Introduction'
+import Iconset from './components/molecules/Iconset'
 import Overlay from './components/organisms/Overlay'
+import LazyComponent from './common/LazyComponent'
+import AboutMe from './components/organisms/AboutMe'
+
+const Contact = () => import('./components/organisms/Contact')
+const Social = () => import('./components/organisms/Social')
 
 const App = (): JSX.Element => {
   const dispatch = useAppDispatch()
@@ -24,8 +27,8 @@ const App = (): JSX.Element => {
           <Header />
           <Introduction />
           <AboutMe />
-          <Contact />
-          <Social />
+          <LazyComponent factory={Contact} id="contact" delay={500} />
+          <LazyComponent factory={Social} id="social" delay={2000} />
           <Overlay />
         </div>
       ) : (
