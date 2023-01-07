@@ -1,7 +1,5 @@
-import { initializeApp } from 'firebase/app'
-import { getDatabase, ref, get, child } from 'firebase/database'
-
 let cache: null | {
+  initializeApp: Function
   getStorage: Function
   getDownloadURL: Function
   ref: Function
@@ -29,18 +27,18 @@ const config = {
   appId,
 }
 
-const app = initializeApp(config)
-const db = ref(getDatabase(app))
-
 export const fetchDb = async (language: string) => {
   const lang = ALLOWED_LANG.includes(language) ? language : 'en'
+  const url = `https://cv-istvan-abraham-default-rtdb.europe-west1.firebasedatabase.app/${lang}.json`
 
-  const snapshot = await get(child(db, lang))
-  return snapshot.exists() ? snapshot.val() : {}
+  const res = await fetch(url)
+  return await res.json()
 }
 
 export const fetchFile = async (resourceName: string) => {
-  const { getStorage, getDownloadURL, ref } = await _getDependencies()
+  const { getStorage, getDownloadURL, ref, initializeApp } =
+    await _getDependencies()
+  initializeApp(config)
   const storage = getStorage()
   const resource = ref(storage, `downloads/${resourceName}`)
   window.open(await getDownloadURL(resource))
@@ -49,7 +47,8 @@ export const fetchFile = async (resourceName: string) => {
 const _getDependencies = async () => {
   if (cache === null) {
     const { getStorage, getDownloadURL, ref } = await import('firebase/storage')
-    cache = { getStorage, getDownloadURL, ref }
+    const { initializeApp } = await import('firebase/app')
+    cache = { getStorage, getDownloadURL, ref, initializeApp }
   }
   return cache
 }
