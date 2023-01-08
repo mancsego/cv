@@ -32,7 +32,6 @@ export interface TimelineProps {
 
 export interface InputProps {
   label: string
-  onChange: Function
   id?: string
   type?: string
   placeholder?: string
