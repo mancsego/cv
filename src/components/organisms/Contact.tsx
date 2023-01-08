@@ -1,14 +1,23 @@
 import { translate } from '@/common/translator'
-import { useState } from 'react'
+import { useRef } from 'react'
 import Input from '../atoms/Input'
 
 const Contact = (): JSX.Element => {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
+  const emailRef = useRef<HTMLInputElement>(null)
+  const nameRef = useRef<HTMLInputElement>(null)
+  const messageRef = useRef<HTMLTextAreaElement>(null)
 
   const handleClick = () => {
-    window.open(`mailto:${email}?subject=Message from ${name}&body=${message}`)
+    const email = emailRef?.current
+    const name = nameRef?.current
+    const message = messageRef?.current
+
+    if (email !== null && message !== null) {
+      const conactPerson = name?.value ?? 'Somebody'
+      window.open(
+        `mailto:${email.value}?subject=Message from ${conactPerson}&body=${message.value}`
+      )
+    }
   }
   return (
     <div id="contact">
@@ -25,11 +34,11 @@ const Contact = (): JSX.Element => {
             </svg>
           </div>
           <div className="flex">
-            <Input label="name" onChange={setName} />
-            <Input label="email" type="email" onChange={setEmail} />
+            <Input label="name" ref={nameRef} />
+            <Input label="email" type="email" ref={emailRef} />
           </div>
           <div>
-            <Input label="message" type="textarea" onChange={setMessage} />
+            <Input label="message" type="textarea" ref={messageRef} />
           </div>
           <div className="flex justify-end mx-4">
             <button className="btn btn-primary" onClick={handleClick}>
