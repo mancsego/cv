@@ -13,6 +13,49 @@ export default defineConfig({
       },
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
+      workbox: {
+        runtimeCaching: [
+          {
+            urlPattern: /.*\.([jt]s[x]?|css)/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'asset-cache',
+              expiration: {
+                maxAgeSeconds: 60 * 60 * 24 * 7,
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
+          {
+            urlPattern: /.*\.(jp[e]g|svg|png|ico)/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'image-cache',
+              expiration: {
+                maxAgeSeconds: 60 * 60 * 24 * 365,
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
+          {
+            urlPattern: /.*firebasedatabase.app.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'cms-cache',
+              expiration: {
+                maxAgeSeconds: 60 * 60 * 24 * 7,
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
+        ],
+      },
       manifest: {
         name: 'Istvan Abraham | DevOps engineer',
         short_name: 'Istvan Abraham',
