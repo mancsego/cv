@@ -11,7 +11,7 @@ const {
   VITE_FIREBASE_API_KEY: apiKey,
   VITE_FIREBASE_DOMAIN: authDomain,
   VITE_DB_URL: databaseURL,
-  VITE_FIREBASE_APP_ID: projectId,
+  VITE_FIREBASE_PROJECT_ID: projectId,
   VITE_FIREBASE_BUCKET: storageBucket,
   VITE_FIREBASE_MESSAGING: messagingSenderId,
   VITE_FIREBASE_APP_ID: appId,
