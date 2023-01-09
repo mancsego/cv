@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 
 export default defineConfig({
-  base: '/cv/',
+  // base: '/cv/',
   plugins: [
     VitePWA({
       devOptions: {
@@ -15,6 +15,19 @@ export default defineConfig({
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       workbox: {
         runtimeCaching: [
+          {
+            urlPattern: /.*firebasedatabase\.app\/(en|de|hu)\.json/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'cms-cache',
+              expiration: {
+                maxAgeSeconds: 60 * 60 * 24 * 7,
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
           {
             urlPattern: /.*\.([jt]s[x]?|css)/i,
             handler: 'CacheFirst',
@@ -35,19 +48,6 @@ export default defineConfig({
               cacheName: 'image-cache',
               expiration: {
                 maxAgeSeconds: 60 * 60 * 24 * 365,
-              },
-              cacheableResponse: {
-                statuses: [0, 200],
-              },
-            },
-          },
-          {
-            urlPattern: /.*firebasedatabase.app.*/i,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'cms-cache',
-              expiration: {
-                maxAgeSeconds: 60 * 60 * 24 * 7,
               },
               cacheableResponse: {
                 statuses: [0, 200],
