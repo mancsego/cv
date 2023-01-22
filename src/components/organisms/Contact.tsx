@@ -20,7 +20,7 @@ const Contact = (): JSX.Element => {
     }
   }
   return (
-    <div id="contact">
+    <section id="contact">
       <div className="heading">
         <hr className="divider" />
         <h2>{translate('contact')}</h2>
@@ -47,7 +47,7 @@ const Contact = (): JSX.Element => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 
