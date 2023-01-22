@@ -2,7 +2,7 @@ import SocialLink from '../atoms/SocialLink'
 
 const Social = (): JSX.Element => {
   return (
-    <div id="social" className="mb-8 md:mb-auto">
+    <footer id="social" className="mb-8 md:mb-auto">
       <div className="heading">
         <h2>social</h2>
         <hr className="divider" />
@@ -19,7 +19,7 @@ const Social = (): JSX.Element => {
           link="https://www.linkedin.com/in/istvan-abraham/"
         />
       </div>
-    </div>
+    </footer>
   )
 }
 

@@ -8,7 +8,7 @@ const AboutMe = (): JSX.Element => {
   const { education, experience } = useAppSelector(selectAboutMe)
 
   return (
-    <div id="about-me">
+    <section id="about-me">
       <div className="heading">
         <h2>{translate('about me')}</h2>
         <hr className="divider" />
@@ -23,7 +23,7 @@ const AboutMe = (): JSX.Element => {
           <Timeline id="education" source={education} />
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

@@ -25,8 +25,10 @@ const App = (): JSX.Element => {
       {loaded ? (
         <div>
           <Header />
-          <Introduction />
-          <AboutMe />
+          <main>
+            <Introduction />
+            <AboutMe />
+          </main>
           <LazyComponent factory={Contact} id="contact" delay={500} />
           <LazyComponent factory={Social} id="social" delay={2000} />
           <Overlay />

@@ -11,7 +11,7 @@ const Introduction = (): JSX.Element => {
     void fetchFile('istvan_abraham_cv.pdf')
   }
   return (
-    <div className="flex flex-col md:flex-row justify-around">
+    <section className="flex flex-col md:flex-row justify-around">
       <div id="me" className="md:basis-1/2 flex justify-center items-end">
         <div className="grow md:hidden backdrop-blur-sm px-5">
           <IntroductionText />
@@ -25,18 +25,19 @@ const Introduction = (): JSX.Element => {
           <div>{desc}</div>
           <div
             id="download"
+            className="rounded-full border p-2 mt-2 fill-primary hover:bg-primary hover:fill-black"
             onClick={() => {
               void downloadCV()
             }}
           >
-            <svg className="fill-primary h-4 w-4">
+            <svg className="h-4 w-3">
               <use xlinkHref="#download" />
             </svg>
           </div>
         </div>
         <Stack />
       </div>
-    </div>
+    </section>
   )
 }
 
