@@ -9,6 +9,7 @@ import php from '@/assets/php.png'
 import laravel from '@/assets/laravel.png'
 import aws from '@/assets/aws.png'
 import { useState } from 'react'
+import { translate } from '@/common/translator'
 
 const Stack = () => {
   const [selected, setSelected] = useState('')
@@ -51,13 +52,13 @@ const Stack = () => {
   )
   return (
     <div className="mt-5">
-      <h3>My Stack</h3>
+      <h3>{translate('My Stack')}</h3>
       <div className="wrapper">
         <div className="w-full xl:w-2/5">{content[0]}</div>
         <div className="w-full xl:w-2/5">{content[1]}</div>
         <div className="w-full xl:w-1/5">{content[2]}</div>
       </div>
-      <div className="flex justify-center h-6 font-semibold uppercase tracking-widest">
+      <div className="flex justify-center h-6 font-light text-sm uppercase tracking-widest">
         {selected}
       </div>
     </div>
