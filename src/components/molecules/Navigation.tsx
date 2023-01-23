@@ -38,7 +38,7 @@ const Navigation = () => {
         onClick={() => setOpen(!open)}
         className="active:animate-spin py-2"
       >
-        <img src={menuIcon} alt="menu" />
+        <img src={menuIcon} alt="menu" width={36} height={34} />
       </button>
     </div>
   )
