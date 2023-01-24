@@ -8,6 +8,7 @@ import Iconset from './components/molecules/Iconset'
 import Overlay from './components/organisms/Overlay'
 import LazyComponent from './common/LazyComponent'
 import AboutMe from './components/organisms/AboutMe'
+import LanguageSelector from './components/molecules/LanguageSelector'
 
 const Contact = () => import('./components/organisms/Contact')
 const Social = () => import('./components/organisms/Social')
@@ -22,6 +23,7 @@ const App = (): JSX.Element => {
   return (
     <div className="container mx-auto px-2 md:px-10 relative">
       <Iconset />
+      <LanguageSelector />
       {loaded ? (
         <div>
           <Header />
