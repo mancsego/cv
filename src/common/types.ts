@@ -53,3 +53,7 @@ export interface LazyComponentProps {
   id: string
   delay?: number
 }
+
+export interface LanguageProps {
+  lang: string
+}

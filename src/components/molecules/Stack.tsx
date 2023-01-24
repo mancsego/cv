@@ -1,13 +1,13 @@
 import './Stack.css'
-import react from '@/assets/react.png'
-import vue from '@/assets/vue.png'
-import ts from '@/assets/ts.png'
-import js from '@/assets/js.png'
-import spring from '@/assets/spring-boot.png'
-import java from '@/assets/java.png'
-import php from '@/assets/php.png'
-import laravel from '@/assets/laravel.png'
-import aws from '@/assets/aws.png'
+import react from '@/assets/stack/react.png'
+import vue from '@/assets/stack/vue.png'
+import ts from '@/assets/stack/ts.png'
+import js from '@/assets/stack/js.png'
+import spring from '@/assets/stack/spring-boot.png'
+import java from '@/assets/stack/java.png'
+import php from '@/assets/stack/php.png'
+import laravel from '@/assets/stack/laravel.png'
+import aws from '@/assets/stack/aws.png'
 import { useState } from 'react'
 import { translate } from '@/common/translator'
 
@@ -39,6 +39,7 @@ const Stack = () => {
     tech.map(({ src, title, cls, width }) => (
       <img
         src={src}
+        loading="lazy"
         alt={title}
         className={cls}
         key={title}

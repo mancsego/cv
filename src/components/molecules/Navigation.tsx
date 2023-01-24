@@ -3,7 +3,7 @@ import NavItem from '../atoms/NavItem'
 
 import menuIcon from '@/assets/react.svg'
 
-const Navigation = () => {
+const Navigation = (): JSX.Element => {
   const [open, setOpen] = useState(false)
   const items = [
     {
