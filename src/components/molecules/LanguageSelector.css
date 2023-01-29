@@ -1,0 +1,19 @@
+.language {
+  @apply rounded-full border p-1 h-9 w-9 text-sm flex justify-center items-center bg-stone-700 hover:bg-primary hover:text-stone-700 absolute transition duration-150 ease-in-out invisible;
+}
+
+.open {
+  @apply translate-x-10 visible;
+}
+
+a:first-of-type {
+  @apply -translate-y-8;
+}
+
+a:last-of-type {
+  @apply translate-y-8;
+}
+
+.active {
+  @apply visible z-10;
+}
