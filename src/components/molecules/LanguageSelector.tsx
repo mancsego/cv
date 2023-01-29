@@ -6,9 +6,14 @@ const LANGUAGES = ['en', 'de', 'hu']
 const LanguageSelector = (): JSX.Element => {
   const [open, setOpen] = useState(false)
 
+  let currentLanguage = location.search.includes('lang') ? null : 'en'
+
   const options = LANGUAGES.map((lang) => {
     const label = lang.toUpperCase()
-    const elem = location.search.includes(lang) ? (
+    currentLanguage ||= location.search.includes(lang) ? lang : null
+    const active = currentLanguage === lang
+
+    const elem = active ? (
       <button
         className="language active"
         onClick={() => {
@@ -21,7 +26,7 @@ const LanguageSelector = (): JSX.Element => {
     ) : (
       <a
         href={`?lang=${lang}`}
-        className={open ? 'open language' : 'language'}
+        className={open ? 'show language' : 'language'}
         rel="noreferrer"
         key={lang}
       >

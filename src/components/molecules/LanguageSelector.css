@@ -1,16 +1,16 @@
 .language {
-  @apply rounded-full border p-1 h-9 w-9 text-sm flex justify-center items-center bg-stone-700 hover:bg-primary hover:text-stone-700 absolute transition duration-150 ease-in-out invisible;
+  @apply rounded-full border p-1 h-9 w-9 text-sm flex justify-center items-center bg-stone-700 hover:bg-primary hover:text-stone-700 absolute transition duration-150 ease-in-out;
 }
 
-.open {
-  @apply translate-x-10 visible;
+.show {
+  @apply translate-x-10;
 }
 
-a:first-of-type {
+.show:first-of-type {
   @apply -translate-y-8;
 }
 
-a:last-of-type {
+.show:last-of-type {
   @apply translate-y-8;
 }
 
