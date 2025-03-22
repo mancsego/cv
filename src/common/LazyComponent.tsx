@@ -6,7 +6,7 @@ const OPTIONS = {
   threshold: 1.0
 }
 
-const loading = 'animate-pulse w-full h-20 bg-stone-700 rounded-sm md:rounded-lg'
+const loading = 'animate-pulse w-full h-20 bg-stone-700 rounded-xs md:rounded-lg'
 
 const LazyComponent = ({ factory, id, delay = 500 }: LazyComponentProps): JSX.Element => {
   const [visible, setVisible] = useState(false)
