@@ -1,6 +1,8 @@
-import { translate } from '@/common/translator'
+import { useTranslations } from '@/hooks/translator'
 
 const IntroductionText = (): JSX.Element => {
+  const translate = useTranslations()
+
   return (
     <p className="tracking-widest">
       {translate('Hey, my name is')}

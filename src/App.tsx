@@ -1,24 +1,20 @@
-import { useAppDispatch, useAppSelector } from './store'
-import { fetchData, selectLoaded } from './store/features/cmsSlice'
-import { useEffect } from 'react'
+import Header from '@/components/organisms/Header'
+import Introduction from '@/components/organisms/Introduction'
+import Iconset from '@/components/molecules/Iconset'
+import Overlay from '@/components/organisms/Overlay'
+import LazyComponent from '@/common/LazyComponent'
+import AboutMe from '@/components/organisms/AboutMe'
+import LanguageSelector from '@/components/molecules/LanguageSelector'
+import { useCmsStore } from '@/store/cms'
 
-import Header from './components/organisms/Header'
-import Introduction from './components/organisms/Introduction'
-import Iconset from './components/molecules/Iconset'
-import Overlay from './components/organisms/Overlay'
-import LazyComponent from './common/LazyComponent'
-import AboutMe from './components/organisms/AboutMe'
-import LanguageSelector from './components/molecules/LanguageSelector'
+const Contact = () => import('@/components/organisms/Contact')
+const Social = () => import('@/components/organisms/Social')
 
-const Contact = () => import('./components/organisms/Contact')
-const Social = () => import('./components/organisms/Social')
+function App () {
+  const fetchData = useCmsStore((state) => state.fetch)
+  const loaded = useCmsStore((state) => state.loaded)
 
-const App = (): JSX.Element => {
-  const dispatch = useAppDispatch()
-  const loaded = useAppSelector(selectLoaded)
-  useEffect(() => {
-    void dispatch(fetchData())
-  }, [])
+  void fetchData()
 
   return (
     <div className="container mx-auto px-2 md:px-10 relative">

@@ -1,4 +1,4 @@
-const Iconset = (): JSX.Element => {
+function Iconset() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" className="hidden">
       <symbol id="beaker" viewBox="214.7 0 182.6 792">

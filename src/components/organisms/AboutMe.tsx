@@ -1,11 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { translate } from '@/common/translator'
-import { useAppSelector } from '../../store'
-import { selectAboutMe } from '../../store/features/cmsSlice'
-import Timeline from './Timeline'
+import Timeline from '@/components/organisms/Timeline'
+import { useTranslations } from '@/hooks/translator'
+import { useCmsStore } from '@/store/cms'
 
-const AboutMe = (): JSX.Element => {
-  const { education, experience } = useAppSelector(selectAboutMe)
+function AboutMe() {
+  const translate = useTranslations()
+  const { experience, education } = useCmsStore((state) => state.cms.about_me)
 
   return (
     <section id="about-me">

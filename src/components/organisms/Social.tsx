@@ -1,6 +1,6 @@
-import SocialLink from '../atoms/SocialLink'
+import SocialLink from '@/components/atoms/SocialLink'
 
-const Social = (): JSX.Element => {
+function Social() {
   return (
     <footer id="social" className="mb-8 md:mb-auto">
       <div className="heading">

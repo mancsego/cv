@@ -1,7 +1,10 @@
-import { translate } from '@/common/translator'
-import { NavItemProps } from '../../common/types'
+import { NavItemProps } from '@/common/types'
+import { useTranslations } from '@/hooks/translator'
 
-const NavItem = ({ link, title, onClick }: NavItemProps) => {
+function NavItem ({ link, title, onClick }: NavItemProps) {
+  const translate = useTranslations()
+
+  console.log(link)
   return (
     <a
       href={link}

@@ -3,7 +3,7 @@ import './LanguageSelector.css'
 
 const LANGUAGES = ['en', 'de', 'hu']
 
-const LanguageSelector = (): JSX.Element => {
+function LanguageSelector() {
   const [open, setOpen] = useState(false)
 
   let currentLanguage = location.search.includes('lang') ? null : 'en'

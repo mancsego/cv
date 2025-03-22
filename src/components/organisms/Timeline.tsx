@@ -1,7 +1,7 @@
-import { TimelineProps } from '../../common/types'
-import TimelineElement from '../atoms/TimelineElement'
+import { TimelineProps } from '@/common/types'
+import TimelineElement from '@/components/atoms/TimelineElement'
 
-const Timeline = ({ source, id }: TimelineProps): JSX.Element => {
+function Timeline ({ source, id }: TimelineProps) {
   const elements = source.map(({ time, headline, desc }, i) => (
     <TimelineElement
       key={`${id}-${i}`}
