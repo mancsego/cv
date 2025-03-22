@@ -3,17 +3,12 @@ import { LazyComponentProps } from './types'
 
 const OPTIONS = {
   rootMargin: '50px',
-  threshold: 1.0,
+  threshold: 1.0
 }
 
-const loading =
-  'animate-pulse w-full h-20 bg-stone-700 rounded-sm md:rounded-lg'
+const loading = 'animate-pulse w-full h-20 bg-stone-700 rounded-sm md:rounded-lg'
 
-const LazyComponent = ({
-  factory,
-  id,
-  delay = 500,
-}: LazyComponentProps): JSX.Element => {
+const LazyComponent = ({ factory, id, delay = 500 }: LazyComponentProps): JSX.Element => {
   const [visible, setVisible] = useState(false)
   const ref = useRef(null)
   const Component = lazy(factory)

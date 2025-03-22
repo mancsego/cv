@@ -1,9 +1,9 @@
-import './Introduction.css'
+import { useCmsStore } from '@/store/cms'
 import IntroductionText from '../atoms/IntroductionText'
 import Stack from '../molecules/Stack'
-import { useCmsStore } from '@/store/cms'
+import './Introduction.css'
 
-function Introduction () {
+function Introduction() {
   const desc = useCmsStore((state) => state.cms.intro)
 
   const downloadCV = async () => {

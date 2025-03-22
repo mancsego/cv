@@ -36,9 +36,7 @@ function LanguageSelector() {
 
     return elem
   })
-  return (
-    <div className="absolute top-14 left-8 md:top-28 md:left-14">{options}</div>
-  )
+  return <div className="absolute top-14 left-8 md:top-28 md:left-14">{options}</div>
 }
 
 export default LanguageSelector

@@ -1,16 +1,16 @@
+import LazyComponent from '@/common/LazyComponent'
+import Iconset from '@/components/molecules/Iconset'
+import LanguageSelector from '@/components/molecules/LanguageSelector'
+import AboutMe from '@/components/organisms/AboutMe'
 import Header from '@/components/organisms/Header'
 import Introduction from '@/components/organisms/Introduction'
-import Iconset from '@/components/molecules/Iconset'
 import Overlay from '@/components/organisms/Overlay'
-import LazyComponent from '@/common/LazyComponent'
-import AboutMe from '@/components/organisms/AboutMe'
-import LanguageSelector from '@/components/molecules/LanguageSelector'
 import { useCmsStore } from '@/store/cms'
 
 const Contact = () => import('@/components/organisms/Contact')
 const Social = () => import('@/components/organisms/Social')
 
-function App () {
+function App() {
   const fetchData = useCmsStore((state) => state.fetch)
   const loaded = useCmsStore((state) => state.loaded)
 

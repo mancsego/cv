@@ -1,6 +1,6 @@
 import { useTranslations } from '@/hooks/translator'
 
-function Header () {
+function Header() {
   const translate = useTranslations()
 
   return (

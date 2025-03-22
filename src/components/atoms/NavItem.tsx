@@ -1,7 +1,7 @@
 import { NavItemProps } from '@/common/types'
 import { useTranslations } from '@/hooks/translator'
 
-function NavItem ({ link, title, onClick }: NavItemProps) {
+function NavItem({ link, title, onClick }: NavItemProps) {
   const translate = useTranslations()
 
   console.log(link)

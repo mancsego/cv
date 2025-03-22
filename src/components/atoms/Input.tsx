@@ -1,7 +1,7 @@
-import { ForwardedRef, forwardRef } from 'react'
 import { InputProps } from '@/common/types'
 import '@/components/atoms/Input.css'
 import { useTranslations } from '@/hooks/translator'
+import { ForwardedRef, forwardRef } from 'react'
 
 const Input = forwardRef(
   (
