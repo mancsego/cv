@@ -1,6 +1,6 @@
+import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
-import react from '@vitejs/plugin-react'
 
 import path from 'path'
 
@@ -9,7 +9,7 @@ export default defineConfig({
   plugins: [
     VitePWA({
       devOptions: {
-        enabled: false,
+        enabled: false
       },
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
@@ -21,12 +21,12 @@ export default defineConfig({
             options: {
               cacheName: 'cms-cache',
               expiration: {
-                maxAgeSeconds: 60 * 60 * 24 * 7,
+                maxAgeSeconds: 60 * 60 * 24 * 7
               },
               cacheableResponse: {
-                statuses: [0, 200],
-              },
-            },
+                statuses: [0, 200]
+              }
+            }
           },
           {
             urlPattern: /.*\.([jt]s[x]?|css)/i,
@@ -34,12 +34,12 @@ export default defineConfig({
             options: {
               cacheName: 'asset-cache',
               expiration: {
-                maxAgeSeconds: 60 * 60 * 24 * 7,
+                maxAgeSeconds: 60 * 60 * 24 * 7
               },
               cacheableResponse: {
-                statuses: [0, 200],
-              },
-            },
+                statuses: [0, 200]
+              }
+            }
           },
           {
             urlPattern: /.*\.(jp[e]g|svg|png|ico)/i,
@@ -47,14 +47,14 @@ export default defineConfig({
             options: {
               cacheName: 'image-cache',
               expiration: {
-                maxAgeSeconds: 60 * 60 * 24 * 365,
+                maxAgeSeconds: 60 * 60 * 24 * 365
               },
               cacheableResponse: {
-                statuses: [0, 200],
-              },
-            },
-          },
-        ],
+                statuses: [0, 200]
+              }
+            }
+          }
+        ]
       },
       manifest: {
         name: 'Istvan Abraham | DevOps engineer',
@@ -66,27 +66,27 @@ export default defineConfig({
           {
             src: 'android-chrome-192x192.png',
             sizes: '192x192',
-            type: 'image/png',
+            type: 'image/png'
           },
           {
             src: 'android-chrome-512x512.png',
             sizes: '512x512',
-            type: 'image/png',
+            type: 'image/png'
           },
           {
             src: 'maskable-icon.png',
             sizes: '512x512',
             type: 'image/png',
-            purpose: 'any maskable',
-          },
-        ],
-      },
+            purpose: 'any maskable'
+          }
+        ]
+      }
     }),
-    react(),
+    react()
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
-    },
-  },
+      '@': path.resolve(__dirname, './src')
+    }
+  }
 })

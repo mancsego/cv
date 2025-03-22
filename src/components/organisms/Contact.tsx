@@ -1,6 +1,6 @@
-import { useRef } from 'react'
 import Input from '@/components/atoms/Input'
 import { useTranslations } from '@/hooks/translator'
+import { useRef } from 'react'
 
 function Contact() {
   const translate = useTranslations()

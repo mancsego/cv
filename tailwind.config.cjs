@@ -6,12 +6,12 @@ module.exports = {
       colors: {
         primary: '#ffffffde',
         secondary: '#8a909e',
-        'react-gray': '#242424',
+        'react-gray': '#242424'
       },
       backgroundImage: {
-        me: "url('/src/assets/me.jpeg')",
-      },
-    },
+        me: "url('/src/assets/me.jpeg')"
+      }
+    }
   },
-  plugins: [],
+  plugins: []
 }

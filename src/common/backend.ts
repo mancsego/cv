@@ -14,7 +14,7 @@ const {
   VITE_FIREBASE_PROJECT_ID: projectId,
   VITE_FIREBASE_BUCKET: storageBucket,
   VITE_FIREBASE_MESSAGING: messagingSenderId,
-  VITE_FIREBASE_APP_ID: appId,
+  VITE_FIREBASE_APP_ID: appId
 } = import.meta.env
 
 const config = {
@@ -24,7 +24,7 @@ const config = {
   projectId,
   storageBucket,
   messagingSenderId,
-  appId,
+  appId
 }
 
 export const fetchDb = async (language: string) => {
@@ -36,8 +36,7 @@ export const fetchDb = async (language: string) => {
 }
 
 export const fetchFile = async (resourceName: string) => {
-  const { getStorage, getDownloadURL, ref, initializeApp } =
-    await _getDependencies()
+  const { getStorage, getDownloadURL, ref, initializeApp } = await _getDependencies()
   initializeApp(config)
   const storage = getStorage()
   const resource = ref(storage, `downloads/${resourceName}`)
