@@ -36,30 +36,34 @@ const technologies = [
 function Stack() {
   const translate = useTranslations()
   const [selected, setSelected] = useState('')
+  const handler = (title: string) => () => {
+    setSelected(title)
+  }
 
   const content = technologies.map((tech) =>
-    tech.map(({ src, title, cls, width }) => (
-      <div className="w-1/4 xl:w-2/5" key={title}>
-        <img
-          src={src}
-          loading="lazy"
-          alt={title}
-          className={cls}
-          key={title}
-          width={width ?? 45}
-          height="55"
-          onClick={() => {
-            setSelected(title)
-          }}
-        />
-      </div>
-    ))
+    tech.map(({ src, title, cls, width }) => {
+      const className = `${cls} h-9 my-2 scalable`.trim()
+      return (
+        <span key={title} className="flex justify-center items-center">
+          <img
+            src={src}
+            loading="lazy"
+            alt={title}
+            className={className}
+            key={title}
+            width={width ?? 45}
+            height="55"
+            onClick={handler(title)}
+          />
+        </span>
+      )
+    })
   )
   return (
-    <div className="mt-5">
+    <div className="flex flex-col items-center flex-wrap">
       <h3>{translate('My Stack')}</h3>
-      <div className="wrapper content-center">{content}</div>
-      <div className="flex justify-center h-6 font-light text-sm uppercase tracking-widest">
+      <div className="w-full grid grid-flow-col grid-rows-3 gap-1">{content}</div>
+      <div className="flex justify-start h-6 font-light text-sm uppercase tracking-widest my-1">
         {selected}
       </div>
     </div>

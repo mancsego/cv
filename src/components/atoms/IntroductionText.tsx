@@ -1,6 +1,6 @@
 import { useTranslations } from '@/hooks/translator'
 
-const IntroductionText = (): JSX.Element => {
+function IntroductionText() {
   const translate = useTranslations()
 
   return (

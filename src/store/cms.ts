@@ -1,19 +1,25 @@
 import { create } from 'zustand'
 
+type TimelineInstance = {
+  time: string
+  headline: string
+  desc: string
+}
+
 type CmsStore = {
   loaded: boolean
   cms: {
     intro: string
     about_me: {
-      education: unknown[]
-      experience: unknown[]
+      education: TimelineInstance[]
+      experience: TimelineInstance[]
     }
   }
   translations: Record<string, string>
   fetch: () => Promise<void>
 }
 
-const useCmsStore = create<CmsStore>((set, get) => ({
+const useCmsStore = create<CmsStore>((set) => ({
   loaded: false,
   cms: {
     intro: '',
@@ -32,10 +38,11 @@ const useCmsStore = create<CmsStore>((set, get) => ({
       const { cms, translations = {} } = await fetchDb(lang)
 
       set({ cms, translations, loaded: true })
-    } catch (e) {
+    } catch (_) {
       set({ loaded: false })
     }
   }
 }))
 
 export { useCmsStore }
+export type { TimelineInstance }

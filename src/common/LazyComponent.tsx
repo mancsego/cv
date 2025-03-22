@@ -1,5 +1,4 @@
-import { lazy, Suspense, useEffect, useRef, useState } from 'react'
-import { LazyComponentProps } from './types'
+import { ComponentType, lazy, Suspense, useEffect, useRef, useState } from 'react'
 
 const OPTIONS = {
   rootMargin: '50px',
@@ -8,7 +7,15 @@ const OPTIONS = {
 
 const loading = 'animate-pulse w-full h-20 bg-stone-700 rounded-xs md:rounded-lg'
 
-const LazyComponent = ({ factory, id, delay = 500 }: LazyComponentProps): JSX.Element => {
+const LazyComponent = ({
+  factory,
+  id,
+  delay = 500
+}: {
+  factory: () => Promise<{ default: ComponentType }>
+  id: string
+  delay?: number
+}) => {
   const [visible, setVisible] = useState(false)
   const ref = useRef(null)
   const Component = lazy(factory)
@@ -24,13 +31,15 @@ const LazyComponent = ({ factory, id, delay = 500 }: LazyComponentProps): JSX.El
     }, OPTIONS)
 
     setTimeout(() => {
-      ref.current !== null && observer.observe(ref.current)
+      if (!ref.current) return
+
+      observer.observe(ref.current)
     }, delay)
 
     return () => {
       observer.disconnect()
     }
-  }, [])
+  }, [delay])
 
   return (
     <div id={id} ref={ref} className={!visible ? loading : 'lazy'}>
