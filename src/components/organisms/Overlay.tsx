@@ -1,10 +1,12 @@
 import './Overlay.css'
 import Navigation from '../molecules/Navigation'
 
-const Overlay = () => (
-  <div className="overlay">
-    <Navigation />
-  </div>
-)
+function Overlay() {
+  return (
+    <div className="overlay">
+      <Navigation />
+    </div>
+  )
+}
 
 export default Overlay

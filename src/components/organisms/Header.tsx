@@ -1,6 +1,8 @@
-import { translate } from '@/common/translator'
+import { useTranslations } from '@/hooks/translator'
 
-const Header = (): JSX.Element => {
+function Header () {
+  const translate = useTranslations()
+
   return (
     <header className="hidden md:flex justify-around py-5 text-2xl">
       <hr className="divider" />

@@ -1,8 +1,9 @@
-import { translate } from '@/common/translator'
 import { useRef } from 'react'
-import Input from '../atoms/Input'
+import Input from '@/components/atoms/Input'
+import { useTranslations } from '@/hooks/translator'
 
-const Contact = (): JSX.Element => {
+function Contact() {
+  const translate = useTranslations()
   const emailRef = useRef<HTMLInputElement>(null)
   const nameRef = useRef<HTMLInputElement>(null)
   const messageRef = useRef<HTMLTextAreaElement>(null)

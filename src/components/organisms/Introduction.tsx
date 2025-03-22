@@ -1,11 +1,11 @@
 import './Introduction.css'
-import { useAppSelector } from '../../store'
-import { selectIntro } from '../../store/features/cmsSlice'
 import IntroductionText from '../atoms/IntroductionText'
 import Stack from '../molecules/Stack'
+import { useCmsStore } from '@/store/cms'
 
-const Introduction = (): JSX.Element => {
-  const desc = useAppSelector(selectIntro)
+function Introduction () {
+  const desc = useCmsStore((state) => state.cms.intro)
+
   const downloadCV = async () => {
     const { fetchFile } = await import('../../common/backend')
     void fetchFile('istvan_abraham_cv.pdf')

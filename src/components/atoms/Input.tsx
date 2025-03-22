@@ -1,13 +1,14 @@
-import { translate } from '@/common/translator'
 import { ForwardedRef, forwardRef } from 'react'
-import { InputProps } from '../../common/types'
-import './Input.css'
+import { InputProps } from '@/common/types'
+import '@/components/atoms/Input.css'
+import { useTranslations } from '@/hooks/translator'
 
 const Input = forwardRef(
   (
     { label, id = _createIdFromLabel(label), type = 'text' }: InputProps,
     ref: ForwardedRef<HTMLInputElement | HTMLTextAreaElement>
   ) => {
+    const translate = useTranslations()
     return (
       <div className="grow relative my-4 mx-1 md:mx-4">
         {type === 'textarea' ? (
