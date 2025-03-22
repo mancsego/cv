@@ -1,5 +1,5 @@
 import LazyComponent from '@/common/LazyComponent'
-import Iconset from '@/components/molecules/Iconset'
+import IconSet from '@/components/molecules/IconSet.tsx'
 import LanguageSelector from '@/components/molecules/LanguageSelector'
 import AboutMe from '@/components/organisms/AboutMe'
 import Header from '@/components/organisms/Header'
@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div className="container mx-auto px-2 md:px-10 relative">
-      <Iconset />
+      <IconSet />
       <LanguageSelector />
       {loaded ? (
         <div>
