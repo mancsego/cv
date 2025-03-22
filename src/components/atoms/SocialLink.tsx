@@ -1,15 +1,7 @@
-import { SocialProps } from '../../common/types'
-
-const SocialLink = ({ icon, link }: SocialProps): JSX.Element => {
+function SocialLink({ icon, link }: { icon: string; link: string }) {
   return (
-    <a
-      href={link}
-      target="_blank"
-      rel="noreferrer"
-      aria-label={link}
-      className="px-2 hover:scale-125 transition-all duration-200"
-    >
-      <svg className="fill-primary h-8 w-8">
+    <a href={link} target="_blank" rel="noreferrer" aria-label={link} className="px-2 scalable">
+      <svg className="fill-primary size-9">
         <use xlinkHref={'#' + icon} />
       </svg>
     </a>

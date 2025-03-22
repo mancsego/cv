@@ -1,6 +1,12 @@
-import { TimelineInstance } from '../../common/types'
-
-const TimelineElement = ({ time, headline, desc }: TimelineInstance): JSX.Element => {
+function TimelineElement({
+  time,
+  headline,
+  desc
+}: {
+  time: string
+  headline: string
+  desc: string
+}) {
   return (
     <li className="mb-8 ml-4">
       <div className="absolute w-4 h-4 bg-gray-200 rounded-full -left-2 border border-white"></div>

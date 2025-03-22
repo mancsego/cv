@@ -13,12 +13,12 @@ function Contact() {
     const name = nameRef?.current
     const message = messageRef?.current
 
-    if (email !== null && message !== null) {
-      const conactPerson = name?.value ?? 'Somebody'
-      window.open(
-        `mailto:${email.value}?subject=Message from ${conactPerson}&body=${message.value}`
-      )
-    }
+    if (!(email && message)) return
+
+    const cp = name?.value ?? 'Somebody'
+    window.open(
+      `mailto:mancsego@gmail.com?subject=Message from ${cp}&body=${message.value}\n sent from:${email.value}`
+    )
   }
   return (
     <section id="contact">

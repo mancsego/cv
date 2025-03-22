@@ -23,10 +23,8 @@ function Introduction() {
         <div>
           <div>{desc}</div>
           <div
-            id="download"
-            onClick={() => {
-              void downloadCV()
-            }}>
+            className="inline-flex content-center item-center my-2 btn-rounded fill-white hover:bg-primary hover:fill-black"
+            onClick={downloadCV}>
             <div>
               <svg className="h-4 w-3">
                 <use xlinkHref="#download" />

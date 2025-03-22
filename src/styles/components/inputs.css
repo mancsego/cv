@@ -1,0 +1,19 @@
+textarea {
+    min-height: 60px;
+}
+
+input,
+textarea {
+    @apply w-full placeholder-transparent p-2 border-b-2 border-gray-300 focus:outline-none focus:border-primary;
+}
+
+label {
+    @apply absolute left-0 top-2 px-2 uppercase text-sm transition-all peer-placeholder-shown:text-base;
+}
+
+textarea:focus-within ~ label,
+textarea:not(:placeholder-shown) ~ label,
+input:focus-within ~ label,
+input:not(:placeholder-shown) ~ label {
+    @apply -top-5 text-xs;
+}

@@ -3,27 +3,29 @@ import NavItem from '../atoms/NavItem'
 
 import menuIcon from '@/assets/react.svg'
 
+const NAV_ITEMS = [
+  {
+    title: 'introduction',
+    link: '#root'
+  },
+  {
+    title: 'about me',
+    link: '#about-me'
+  },
+  {
+    title: 'contact',
+    link: '#contact'
+  },
+  {
+    title: 'social',
+    link: '#social'
+  }
+]
+
 function Navigation() {
   const [open, setOpen] = useState(false)
-  const items = [
-    {
-      title: 'introduction',
-      link: '#root'
-    },
-    {
-      title: 'about me',
-      link: '#about-me'
-    },
-    {
-      title: 'contact',
-      link: '#contact'
-    },
-    {
-      title: 'social',
-      link: '#social'
-    }
-  ]
-  const content = items.map(({ link, title }) => (
+
+  const content = NAV_ITEMS.map(({ link, title }) => (
     <NavItem title={title} link={link} key={link} onClick={() => setOpen(false)} />
   ))
   return (
