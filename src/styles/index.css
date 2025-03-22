@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #ffffffde;
+  --color-secondary: #8a909e;
+  --color-react-gray: #242424;
+
+  --background-image-me: url('/src/assets/me.jpeg');
+}
+
+:root {
+  @apply text-xl font-normal text-primary leading-6;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+
+  color-scheme: light dark;
+  background-color: #242424;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+input,
+textarea,
+button,
+select,
+img,
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+@layer base {
+  a {
+    @apply text-primary cursor-pointer relative inline-block;
+  }
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply text-xl;
+  }
+  h4 {
+    @apply text-lg;
+  }
+}
+
+@layer components {
+  .link::after {
+    transform: scale(1, 1);
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: rgb(255, 255, 255);
+    position: absolute;
+    bottom: -7px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left bottom;
+    transition: transform 0.35s ease-out;
+  }
+
+  .link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left bottom;
+  }
+  .btn {
+    @apply uppercase text-base text-react-gray px-6 py-2;
+  }
+
+  .btn-primary {
+    @apply bg-primary active:bg-secondary;
+  }
+
+  .heading {
+    @apply flex justify-around my-5;
+  }
+
+  .card {
+    @apply md:px-16 pb-6 pt-7 rounded-lg shadow-md shadow-zinc-700 bg-zinc-800 grow max-w-screen-lg;
+  }
+}
+
+.divider {
+  @apply mx-10 border-primary flex grow self-center max-w-2xl justify-start;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* intro */
+#me {
+  background-image: url('/src/assets/me.jpeg');
+  min-height: 60vh;
+  box-shadow: inset 0 0 20px 20px #242426;
+  @apply xl:mx-6 rounded-2xl max-w-full bg-no-repeat bg-cover bg-center;
+}
+#download {
+  @apply inline-block justify-around items-center cursor-pointer rounded-full py-[10px] px-[13px] border mt-2 fill-primary hover:bg-primary hover:fill-black hover:scale-125 transition-all duration-150;
+}
+
+
+/*/ lng selector*/
+
+.language {
+  @apply rounded-full border p-1 h-9 w-9 text-sm flex justify-center items-center bg-stone-700 hover:bg-primary hover:text-stone-700 absolute transition duration-150 ease-in-out;
+}
+
+.show {
+  @apply translate-x-10;
+}
+
+.show:first-of-type {
+  @apply -translate-y-8;
+}
+
+.show:last-of-type {
+  @apply translate-y-8;
+}
+
+.active {
+  @apply visible z-10;
+}
+
+/*stack*/
+
+.wrapper {
+  @apply flex flex-wrap justify-between p-2 my-2;
+}
+.wrapper > div {
+  @apply flex justify-around my-1;
+}
+.wrapper > div img {
+  @apply h-9 md:h-9 my-1 duration-150 transition-all cursor-pointer;
+}
+.wrapper > div img:hover {
+  @apply scale-125;
+}
+
+/*inputs*/
+textarea {
+  min-height: 60px;
+}
+
+input,
+textarea {
+  padding: 10px !important;
+  @apply w-full placeholder-transparent border-b-2 border-gray-300 focus:outline-none focus:border-primary;
+}
+
+label {
+  padding-inline: 10px !important;
+  @apply absolute left-0 top-2 uppercase text-sm transition-all peer-placeholder-shown:text-base;
+}
+
+textarea:focus-within ~ label,
+textarea:not(:placeholder-shown) ~ label,
+input:focus-within ~ label,
+input:not(:placeholder-shown) ~ label {
+  @apply -top-5 text-xs;
+}

@@ -1,7 +1,6 @@
+import IntroductionText from '@/components/atoms/IntroductionText'
+import Stack from '@/components/molecules/Stack'
 import { useCmsStore } from '@/store/cms'
-import IntroductionText from '../atoms/IntroductionText'
-import Stack from '../molecules/Stack'
-import './Introduction.css'
 
 function Introduction() {
   const desc = useCmsStore((state) => state.cms.intro)
@@ -13,7 +12,7 @@ function Introduction() {
   return (
     <section className="flex flex-col md:flex-row justify-around">
       <div id="me" className="md:basis-1/2 flex justify-center items-end">
-        <div className="grow md:hidden backdrop-blur-sm px-5">
+        <div className="grow md:hidden backdrop-blur-xs px-5">
           <IntroductionText />
         </div>
       </div>
@@ -25,14 +24,14 @@ function Introduction() {
           <div>{desc}</div>
           <div
             id="download"
-            className="rounded-full border p-2 mt-2 fill-primary hover:bg-primary hover:fill-black"
             onClick={() => {
               void downloadCV()
-            }}
-          >
-            <svg className="h-4 w-3">
-              <use xlinkHref="#download" />
-            </svg>
+            }}>
+            <div>
+              <svg className="h-4 w-3">
+                <use xlinkHref="#download" />
+              </svg>
+            </div>
           </div>
         </div>
         <Stack />

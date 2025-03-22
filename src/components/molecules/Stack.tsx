@@ -9,7 +9,6 @@ import ts from '@/assets/stack/ts.png'
 import vue from '@/assets/stack/vue.png'
 import { useTranslations } from '@/hooks/translator'
 import { useState } from 'react'
-import './Stack.css'
 
 const technologies = [
   [
