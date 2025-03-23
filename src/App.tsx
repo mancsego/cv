@@ -23,12 +23,12 @@ function App() {
       {loaded ? (
         <div>
           <Header />
-          <main>
+          <main className="pb-8">
             <Introduction />
             <AboutMe />
+            <LazyComponent factory={Contact} id="contact" delay={500} minHeight={650} />
+            <LazyComponent factory={Social} id="social" delay={500} minHeight={160} />
           </main>
-          <LazyComponent factory={Contact} id="contact" delay={500} />
-          <LazyComponent factory={Social} id="social" delay={2000} />
           <Overlay />
         </div>
       ) : (
