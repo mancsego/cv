@@ -20,6 +20,18 @@ jobs:
       - name: Install dependencies
         run: bun install
 
+      - name: Create .env file from GitHub Secrets
+        run: |
+          cat <<EOF > .env
+          VITE_FIREBASE_API_KEY=${{ secrets.VITE_FIREBASE_API_KEY }}
+          VITE_FIREBASE_DOMAIN=${{ secrets.VITE_FIREBASE_DOMAIN }}
+          VITE_DB_URL=${{ secrets.VITE_DB_URL }}
+          VITE_FIREBASE_PROJECT_ID=${{ secrets.VITE_FIREBASE_PROJECT_ID }}
+          VITE_FIREBASE_BUCKET=${{ secrets.VITE_FIREBASE_BUCKET }}
+          VITE_FIREBASE_MESSAGING=${{ secrets.VITE_FIREBASE_MESSAGING }}
+          VITE_FIREBASE_APP_ID=${{ secrets.VITE_FIREBASE_APP_ID }}
+          EOF
+
       - name: Build app
         run: bun run build
 
