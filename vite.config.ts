@@ -18,7 +18,7 @@ export default defineConfig({
         runtimeCaching: [
           {
             urlPattern: /.*firebasedatabase\.app\/(en|de|hu)\.json/i,
-            handler: 'CacheFirst',
+            handler: 'StaleWhileRevalidate',
             options: {
               cacheName: 'cms-cache',
               expiration: {
