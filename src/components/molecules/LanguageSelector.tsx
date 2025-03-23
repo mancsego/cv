@@ -2,17 +2,21 @@ import { useState } from 'react'
 
 const LANGUAGES = ['en', 'de', 'hu']
 
-function Languages({ isOpen, handler }: { isOpen: boolean; handler: () => void }) {
+const getLang = () => {
   const searchParams = new URLSearchParams(location.search)
-  const currentLanguage = searchParams.get('lang') ?? 'en'
+  return searchParams.get('lang') ?? 'en'
+}
+
+function Languages({ isOpen, handler }: { isOpen: boolean; handler: () => void }) {
+  const current = getLang()
 
   return LANGUAGES.map((lang) => {
-    const label = lang.toUpperCase()
+    console.log(lang, current === lang)
 
-    if (currentLanguage === lang)
+    if (current === lang)
       return (
-        <button className="btn-rounded absolute active" onClick={handler} key={lang}>
-          {label}
+        <button className="btn-rounded absolute active uppercase z-10" onClick={handler} key={lang}>
+          {lang}
         </button>
       )
 
@@ -21,12 +25,12 @@ function Languages({ isOpen, handler }: { isOpen: boolean; handler: () => void }
         href={`?lang=${lang}`}
         className={
           isOpen
-            ? 'absolute translate-x-10 first-of-type:-translate-y-8 last-of-type:translate-y-8 btn-rounded'
-            : 'absolute btn-rounded'
+            ? 'absolute translate-x-10 first-of-type:-translate-y-8 last-of-type:translate-y-8 btn-rounded uppercase'
+            : 'absolute btn-rounded uppercase'
         }
         rel="noreferrer"
         key={lang}>
-        {label}
+        {lang}
       </a>
     )
   })
@@ -39,7 +43,7 @@ function LanguageSelector() {
   }
 
   return (
-    <div className="absolute top-14 left-8 md:top-28 md:left-14">
+    <div className="absolute top-14 left-8 md:top-28 md:left-14 ">
       <Languages handler={handler} isOpen={open} />
     </div>
   )
