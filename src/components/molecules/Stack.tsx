@@ -7,8 +7,10 @@ import react from '@/assets/stack/react.png'
 import spring from '@/assets/stack/spring-boot.png'
 import ts from '@/assets/stack/ts.png'
 import vue from '@/assets/stack/vue.png'
+import Slide from '@/components/atoms/Slide'
 import { useTranslations } from '@/hooks/translator'
-import { useState } from 'react'
+import { Popover, PopoverButton, PopoverGroup, PopoverPanel } from '@headlessui/react'
+import { ImgHTMLAttributes } from 'react'
 
 const technologies = [
   [
@@ -35,38 +37,39 @@ const technologies = [
 
 function Stack() {
   const translate = useTranslations()
-  const [selected, setSelected] = useState('')
-  const handler = (title: string) => () => {
-    setSelected(title)
-  }
 
   const content = technologies.map((tech) =>
     tech.map(({ src, title, cls, width }) => {
       const className = `${cls} h-9 my-2 scalable`.trim()
+      const props: ImgHTMLAttributes<HTMLImageElement> = {
+        src,
+        title,
+        className,
+        height: '55',
+        width: width ?? '45',
+        loading: 'lazy'
+      }
       return (
-        <span key={title} className="flex justify-center items-center">
-          <img
-            src={src}
-            loading="lazy"
-            alt={title}
-            className={className}
-            key={title}
-            width={width ?? 45}
-            height="55"
-            onClick={handler(title)}
-          />
-        </span>
+        <Popover className="relative flex content-around" key={title}>
+          <PopoverButton className="grow flex justify-around focus:outline-none">
+            <img {...props} />
+          </PopoverButton>
+          <PopoverPanel
+            anchor="bottom"
+            className="overflow-hidden! bg-linear-to-b from-react-gray to-react-gray/10">
+            <Slide direction="up" className="text-center">
+              <div className="px-3 pb-4">{title}</div>
+            </Slide>
+          </PopoverPanel>
+        </Popover>
       )
     })
   )
   return (
-    <div className="flex flex-col items-center flex-wrap">
-      <h3>{translate('My Stack')}</h3>
+    <PopoverGroup className="flex flex-col items-center flex-wrap">
+      <h3 className="mb-2">{translate('My Stack')}</h3>
       <div className="w-full grid grid-flow-col grid-rows-3 gap-1">{content}</div>
-      <div className="flex justify-start h-6 font-light text-sm uppercase tracking-widest my-1">
-        {selected}
-      </div>
-    </div>
+    </PopoverGroup>
   )
 }
 
