@@ -1,18 +1,12 @@
+import { getLang } from '@/common/backend'
 import { useState } from 'react'
 
 const LANGUAGES = ['en', 'de', 'hu']
-
-const getLang = () => {
-  const searchParams = new URLSearchParams(location.search)
-  return searchParams.get('lang') ?? 'en'
-}
 
 function Languages({ isOpen, handler }: { isOpen: boolean; handler: () => void }) {
   const current = getLang()
 
   return LANGUAGES.map((lang) => {
-    console.log(lang, current === lang)
-
     if (current === lang)
       return (
         <button className="btn-rounded absolute active uppercase z-10" onClick={handler} key={lang}>

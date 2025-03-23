@@ -1,10 +1,5 @@
 import { ComponentType, lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react'
 
-const OPTIONS = {
-  rootMargin: '50px',
-  threshold: 1.0
-}
-
 const loading = 'animate-pulse w-full bg-stone-700 rounded-xs md:rounded-lg'
 
 const LazyComponent = ({
@@ -25,12 +20,15 @@ const LazyComponent = ({
   const content = <Component />
   const observer = useMemo(
     () =>
-      new IntersectionObserver(([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(entry.isIntersecting)
-          observer.disconnect()
-        }
-      }, OPTIONS),
+      new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setVisible(entry.isIntersecting)
+            observer.disconnect()
+          }
+        },
+        { rootMargin: minHeight + 50 + 'px', threshold: 1.0 }
+      ),
     []
   )
   setTimeout(() => {
