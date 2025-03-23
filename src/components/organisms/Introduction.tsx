@@ -7,7 +7,7 @@ function Introduction() {
 
   const downloadCV = async () => {
     const { fetchFile } = await import('../../common/backend')
-    void fetchFile('istvan_abraham_cv.pdf')
+    void fetchFile()
   }
   return (
     <section className="flex flex-col md:flex-row justify-around">

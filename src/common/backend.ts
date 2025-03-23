@@ -1,8 +1,8 @@
 let cache: null | {
-  initializeApp: Function
-  getStorage: Function
-  getDownloadURL: Function
-  ref: Function
+  initializeApp: CallableFunction
+  getStorage: CallableFunction
+  getDownloadURL: CallableFunction
+  ref: CallableFunction
 } = null
 
 const ALLOWED_LANG = ['en', 'de', 'hu']
@@ -27,7 +27,7 @@ const config = {
   appId
 }
 
-export const fetchDb = async (language: string) => {
+const fetchDb = async (language: string) => {
   const lang = ALLOWED_LANG.includes(language) ? language : 'en'
   const url = `https://cv-istvan-abraham-default-rtdb.europe-west1.firebasedatabase.app/${lang}.json`
 
@@ -35,12 +35,18 @@ export const fetchDb = async (language: string) => {
   return await res.json()
 }
 
-export const fetchFile = async (resourceName: string) => {
+const fetchFile = async () => {
   const { getStorage, getDownloadURL, ref, initializeApp } = await _getDependencies()
   initializeApp(config)
   const storage = getStorage()
-  const resource = ref(storage, `downloads/${resourceName}`)
+  const resource = ref(storage, `downloads/CV_${getLang()}.pdf`)
+
   window.open(await getDownloadURL(resource))
+}
+
+const getLang = () => {
+  const searchParams = new URLSearchParams(location.search)
+  return searchParams.get('lang') ?? 'en'
 }
 
 const _getDependencies = async () => {
@@ -51,3 +57,5 @@ const _getDependencies = async () => {
   }
   return cache
 }
+
+export { fetchDb, fetchFile, getLang }

@@ -14,11 +14,11 @@ function AboutMe() {
       </div>
       <div className="flex justify-between flex-col md:flex-row xl:mx-16">
         <div className="w-full md:w-1/2">
-          <h3 className="heading">Experience</h3>
-          <Timeline id="expecrience" source={experience} />
+          <h3 className="heading">{translate('Experience')}</h3>
+          <Timeline id="experience" source={experience} />
         </div>
         <div className="w-full md:w-1/2">
-          <h3 className="heading">Education</h3>
+          <h3 className="heading">{translate('Education')}</h3>
           <Timeline id="education" source={education} />
         </div>
       </div>
