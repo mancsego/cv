@@ -8,10 +8,11 @@ const baseProps = {
   enterTo: 'opacity-100 translate-x-0 translate-y-0'
 }
 const transitions = {
-  left: 'opacity-0 translate-x-3',
-  right: 'opacity-0 -translate-x-3',
-  up: 'opacity-0 translate-y-10',
-  down: 'opacity-0 -translate-y-10'
+  left: 'data-[enter]:duration-300 data-[enter]:data-[closed]:translate-x-full data-[leave]:duration-300 data-[leave]:data-[closed]:-translate-x-full',
+  right:
+    'data-[enter]:duration-300 data-[enter]:data-[closed]:-translate-x-full data-[leave]:duration-300 data-[leave]:data-[closed]:translate-x-full',
+  down: 'data-[enter]:duration-300 data-[enter]:data-[closed]:-translate-y-full data-[leave]:duration-300 data-[leave]:data-[closed]:translate-y-full',
+  up: 'data-[enter]:duration-300 data-[enter]:data-[closed]:translate-y-full data-[leave]:duration-300 data-[leave]:data-[closed]:-translate-y-full'
 }
 
 export default function Slide({
@@ -24,10 +25,11 @@ export default function Slide({
   className?: string
 }) {
   const props = { ...baseProps, enterFrom: transitions[direction] }
+  const classes = `${transitions[direction]} ${className}`
 
   return (
     <Transition {...props}>
-      <div className={className}>{children}</div>
+      <div className={classes}>{children}</div>
     </Transition>
   )
 }
