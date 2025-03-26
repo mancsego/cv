@@ -57,7 +57,9 @@ function Stack() {
         <PopoverButton className="grow flex justify-around focus:outline-none">
           <img {...props} />
         </PopoverButton>
-        <PopoverPanel anchor="bottom" className="overflow-hidden! bg-radial from-react-gray to-80%">
+        <PopoverPanel
+          anchor="bottom"
+          className="overflow-hidden! bg-radial from-react-gray to-80% [--anchor-gap:-60px] pointer-events-none">
           <Slide direction="up" className="text-center">
             <div className="px-2 py-4">{title}</div>
           </Slide>
