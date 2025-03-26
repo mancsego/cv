@@ -7,7 +7,7 @@ function AboutMe() {
   const { experience, education } = useCmsStore((state) => state.cms.about_me)
 
   return (
-    <section id="about-me">
+    <section id="about-me" className="pl-2">
       <div className="heading">
         <h2>{translate('about me')}</h2>
         <hr className="divider" />
