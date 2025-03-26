@@ -17,7 +17,7 @@ function App() {
   void fetchData()
 
   return (
-    <div className="container mx-auto px-2 md:px-10 relative">
+    <div className="container mx-auto md:px-10 relative">
       <IconSet />
       <LanguageSelector />
       {loaded ? (
@@ -25,9 +25,11 @@ function App() {
           <Header />
           <main className="pb-8">
             <Introduction />
-            <AboutMe />
-            <LazyComponent factory={Contact} id="contact" delay={500} minHeight={650} />
-            <LazyComponent factory={Social} id="social" delay={500} minHeight={160} />
+            <div className="px-2">
+              <AboutMe />
+              <LazyComponent factory={Contact} id="contact" delay={500} minHeight={650} />
+              <LazyComponent factory={Social} id="social" delay={500} minHeight={160} />
+            </div>
           </main>
           <Overlay />
         </div>
