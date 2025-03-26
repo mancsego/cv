@@ -9,7 +9,7 @@ function Languages({ isOpen, handler }: { isOpen: boolean; handler: () => void }
   return LANGUAGES.map((lang) => {
     if (current === lang)
       return (
-        <button className="btn-rounded absolute active uppercase z-10" onClick={handler} key={lang}>
+        <button className="btn-rounded absolute active uppercase z-20" onClick={handler} key={lang}>
           {lang}
         </button>
       )
@@ -37,7 +37,7 @@ function LanguageSelector() {
   }
 
   return (
-    <div className="absolute top-14 left-8 md:top-28 md:left-14 ">
+    <div className="absolute top-14 left-8 md:top-28 md:left-14 z-10">
       <Languages handler={handler} isOpen={open} />
     </div>
   )
