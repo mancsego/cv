@@ -31,17 +31,17 @@ function Introduction() {
   return (
     <section>
       <div className="flex flex-col md:flex-row justify-around">
-        <div className="basis-1/2 relative flex justify-around items-center xl:pl-14">
-          <div className="absolute inset-0 l bg-radial from-transparent from-30% to-react-gray"></div>
-          <picture className="grow">
-            <source media="(max-width: 768px)" srcSet={heroSm} />
-            <source media="(max-width: 1024px)" srcSet={heroMd} />
-            <source media="(min-width: 1024px)" srcSet={heroLg} />
+        <div className="basis-1/2 flex justify-around items-center xl:pl-14">
+          <picture className="grow relative">
+            <div className="absolute inset-0 l bg-radial from-transparent from-30% to-react-gray"></div>
+            <source media="(max-width: 767px)" srcSet={heroSm} />
+            <source media="(max-width: 1365px)" srcSet={heroMd} />
+            <source media="(min-width: 1365px)" srcSet={heroLg} />
             <img
               src={heroLg}
               alt="portrait-image"
               fetchPriority="high"
-              className="object-cover object-[50%_20%] size-full md:max-h-[850px] lg:max-h-[620px] overflow-hidden rounded-2xl"
+              className="object-cover object-[50%_20%] size-full md:max-h-[1000px] lg:max-h-[900px] overflow-hidden rounded-2xl"
             />
           </picture>
           <div className="px-5 grow absolute md:hidden left-0 right-0 bottom-0 bg-gradient-to-b from-transparent to-react-gray">
