@@ -7,10 +7,3 @@
   --color-secondary: #8a909e;
   --color-react-gray: #242424;
 }
-
-#me {
-  background-image: url('/src/assets/me.webp');
-  min-height: 60vh;
-  box-shadow: inset 0 0 20px 20px var(--color-react-gray);
-  @apply xl:mx-6 rounded-2xl max-w-full bg-no-repeat bg-cover bg-center;
-}

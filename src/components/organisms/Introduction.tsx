@@ -21,9 +21,15 @@ function CVButton() {
   )
 }
 
-function Introduction() {
+function Description() {
   const desc = useCmsStore((state) => state.cms.intro)
 
+  if (!desc) return <div className="loading h-80"></div>
+
+  return <div>{desc}</div>
+}
+
+function Introduction() {
   const heroLg = new URL('@/assets/me.webp', import.meta.url).href
   const heroMd = new URL('@/assets/me_md.webp', import.meta.url).href
   const heroSm = new URL('@/assets/me_sm.webp', import.meta.url).href
@@ -31,7 +37,7 @@ function Introduction() {
   return (
     <section>
       <div className="flex flex-col md:flex-row justify-around">
-        <div className="basis-1/2 flex justify-around items-center xl:pl-14">
+        <div className="basis-1/2 flex justify-around items-center xl:pl-14 relative">
           <picture className="grow relative">
             <div className="absolute inset-0 l bg-radial from-transparent from-30% to-react-gray"></div>
             <source media="(max-width: 767px)" srcSet={heroSm} />
@@ -52,7 +58,7 @@ function Introduction() {
           <div className="hidden md:block">
             <IntroductionText />
           </div>
-          <div>{desc}</div>
+          <Description />
           <CVButton />
           <Stack />
         </div>

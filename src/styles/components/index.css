@@ -35,4 +35,8 @@
   .loader {
     @apply size-12 border border-primary border-b-transparent rounded-full shadow-md shadow-primary/3 animate-spin;
   }
+
+  .loading {
+    @apply animate-pulse w-full bg-[#454545] rounded-xs md:rounded-lg;
+  }
 }

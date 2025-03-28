@@ -34,13 +34,9 @@ const useCmsStore = create<CmsStore>((set) => ({
     const match = location.search.match(/lang=(?<lang>.{2})/)
     const lang = match?.groups?.lang ?? 'en'
 
-    try {
-      const { cms, translations = {} } = await fetchDb(lang)
+    const { cms, translations = {} } = await fetchDb(lang)
 
-      set({ cms, translations, loaded: true })
-    } catch (_) {
-      set({ loaded: false })
-    }
+    set({ cms, translations, loaded: true })
   }
 }))
 

@@ -12,7 +12,6 @@ const Social = () => import('@/components/organisms/Social')
 
 function App() {
   const fetchData = useCmsStore((state) => state.fetch)
-  const loaded = useCmsStore((state) => state.loaded)
 
   void fetchData()
 
@@ -20,25 +19,18 @@ function App() {
     <div className="container mx-auto md:px-10 relative">
       <IconSet />
       <LanguageSelector />
-      {loaded ? (
-        <div>
-          <Header />
-          <main className="pb-8">
-            <Introduction />
-            <div className="px-2">
-              <AboutMe />
-              <LazyComponent factory={Contact} id="contact" delay={500} minHeight={650} />
-              <LazyComponent factory={Social} id="social" delay={500} minHeight={160} />
-            </div>
-          </main>
-          <Overlay />
-        </div>
-      ) : (
-        <div className="h-screen flex flex-col justify-center items-center">
-          <div className="loader"></div>
-          <h2 className="pt-5">Loading</h2>
-        </div>
-      )}
+      <div>
+        <Header />
+        <main className="pb-8">
+          <Introduction />
+          <div className="px-2">
+            <AboutMe />
+            <LazyComponent factory={Contact} id="contact" delay={500} minHeight={650} />
+            <LazyComponent factory={Social} id="social" delay={500} minHeight={160} />
+          </div>
+        </main>
+        <Overlay />
+      </div>
     </div>
   )
 }

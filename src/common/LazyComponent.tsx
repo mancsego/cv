@@ -1,7 +1,5 @@
 import { ComponentType, lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react'
 
-const loading = 'animate-pulse w-full bg-stone-700 rounded-xs md:rounded-lg'
-
 const LazyComponent = ({
   factory,
   id,
@@ -47,7 +45,7 @@ const LazyComponent = ({
     <div
       id={id}
       ref={ref}
-      className={visible ? 'lazy' : loading}
+      className={visible ? 'lazy' : 'loading'}
       style={{ minHeight: `${minHeight}px` }}>
       <Suspense>{visible && content}</Suspense>
     </div>
