@@ -5,7 +5,14 @@ import { getDownloadURL, getStorage, ref as storageRef } from 'firebase/storage'
 const ALLOWED_LANG = ['en', 'de', 'hu']
 
 const getNetworkHandler = (url: string) => {
+  const { VITE_FIREBASE_APP_CHECK_ENABLED: appCheckEnabled } = import.meta.env
+
   return async () => {
+    if (!appCheckEnabled) {
+      const res = await fetch(url)
+      return res.json()
+    }
+
     const { appCheck } = initApp()
     const { token } = await getToken(appCheck, true)
 

@@ -37,7 +37,7 @@ function Introduction() {
   return (
     <section>
       <div className="flex flex-col md:flex-row justify-around">
-        <div className="basis-1/2 flex justify-around items-center xl:pl-14 relative">
+        <div className="basis-1/2 flex justify-around items-center xl:pl-14 relative min-h-[425px]">
           <picture className="grow relative">
             <div className="absolute inset-0 l bg-radial from-transparent from-30% to-react-gray"></div>
             <source media="(max-width: 767px)" srcSet={heroSm} />
