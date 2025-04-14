@@ -63,22 +63,57 @@ export default defineConfig({
         description:
           'A professional software engineer with over 4 years of experience. You can learn more about me hereby.',
         theme_color: '#242424',
+        display: 'standalone',
         icons: [
           {
-            src: 'android-chrome-192x192.png',
+            src: 'icons/icon-48x48.webp',
+            sizes: '48x48',
+            type: 'image/webp'
+          },
+          {
+            src: 'icons/icon-72x72.webp',
+            sizes: '72x72',
+            type: 'image/webp'
+          },
+          {
+            src: 'icons/icon-96x96.webp',
+            sizes: '96x96',
+            type: 'image/webp'
+          },
+          {
+            src: 'icons/icon-128x128.webp',
+            sizes: '128x128',
+            type: 'image/webp'
+          },
+          {
+            src: 'icons/icon-144x144.webp',
+            sizes: '144x144',
+            type: 'image/webp'
+          },
+          {
+            src: 'icons/icon-152x152.webp',
+            sizes: '152x152',
+            type: 'image/webp'
+          },
+          {
+            src: 'icons/icon-192x192.webp',
             sizes: '192x192',
-            type: 'image/png'
+            type: 'image/webp'
           },
           {
-            src: 'android-chrome-512x512.png',
-            sizes: '512x512',
-            type: 'image/png'
+            src: 'icons/icon-256x256.webp',
+            sizes: '256x256',
+            type: 'image/webp'
           },
           {
-            src: 'maskable-icon.png',
+            src: 'icons/icon-384x384.webp',
+            sizes: '384x384',
+            type: 'image/webp'
+          },
+          {
+            src: 'icons/icon-512x512.webp',
             sizes: '512x512',
-            type: 'image/png',
-            purpose: 'any maskable'
+            type: 'image/webp'
           }
         ]
       }
